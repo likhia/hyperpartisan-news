@@ -55,9 +55,9 @@ sh deploy.sh
 * Click on `Create Namespace` button.  Name it as `demo`.
 
 * Create the following topics under `demo`.  Set as `Persistent`.  
-* * raw 
-* * hyperpartisan
-* * non-hyperpartisan
+    * raw 
+    * hyperpartisan
+    * non-hyperpartisan
 
 * Under the `fn` folder,  put the download secure bundle zip file. 
 
@@ -115,19 +115,19 @@ sh package.sh
 
 ## Start Consumer 
 
-* Under the `streaming` folder, run the command below to consumer message from `hyperpartisan` topic.
+* Under the `streaming` folder, run the command below to consume message from `hyperpartisan` topic.
 ```
 python3.10 ./src/Hyperpartisan.py
 ```
 
-* Under the same folder, run the command below to consumer message from `non-hyperpartisan` topic.
+* Under the same folder, run the command below to consume message from `non-hyperpartisan` topic.
 ```
 python3.10 ./src/NonHyperpartisan.py
 ```
 
 ## Start Producer
 
-* Under the `streaming` folder, run the command below to run Producer as a service to consume news content.
+* Under the `streaming` folder, run the command below to run Producer as a service to send news content to the streaming solution.
 ```
 python3.10 ./src/RawProducer.py
 ```
