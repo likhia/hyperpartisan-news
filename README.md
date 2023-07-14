@@ -8,7 +8,7 @@ Please note that Python 3.10 is used to run/test this whole application.
 
 Below is the architecture of this application.   
 
-![./images/architectureDiagram.png]
+![Architecture Diagram](./images/architectureDiagram.png)
 
 # Pre-requisites
 
@@ -62,7 +62,7 @@ sh deploy.sh
 * Under the same folder,  rename .env.sample to .env.  
 
 * Copy the full name of each topics (hyperpartisan, non-hyperpartisan) and paste into the environment variables(hyperpartisan_topic, nonhyperpartisan_topic) in .env under `fn` folder.
-![./images/namespace.png]
+![namespace](./images/namespace.png)
 
 * Replace `api_url` with your application URL. 
 
@@ -85,7 +85,7 @@ sh package.sh
 * Specify a name and select namespace as `demo`.  Click `Next`. 
 
 * Upload the generated `fn.zip` and select function as `split.SplitFunction`.  Click `Next`.
-![./images/functionUpload.png]
+![Upload Function](./images/functionUpload.png)
 
 * Select `Input Topic` as `raw` under `demo` namespace.  Click `Next`.
 
