@@ -1,6 +1,8 @@
 # Overview 
 
-This project is to share the implementation of Real-Time AI Solution using DataStax.    The use case is about detecting hyperpartisan news contents.  Instead of using [traditional train model](https://towardsdatascience.com/train-a-longformer-for-detecting-hyperpartisan-news-content-7c141230784e) approach,  use the [trained data](https://huggingface.co/datasets/hyperpartisan_news_detection) and Vector Search to faster detect the possibility that the news content is hyperpartisan and take action on it (e.g. Take it down from website).
+This project is to share the implementation of Real-Time AI Solution with Vector Search.    The use case is about detecting hyperpartisan news contents.  Instead of using [traditional train model](https://towardsdatascience.com/train-a-longformer-for-detecting-hyperpartisan-news-content-7c141230784e) approach,  use the [trained data](https://huggingface.co/datasets/hyperpartisan_news_detection) and Vector Search to faster search the closest data based on embedding and predict the possibility that the news content is hyperpartisan and take necessary action on it (e.g. Take it down from website).
+
+Just for illustration.  The application will just consume the messages with hyperpartisan content and print the content.
 
 Please note that Python 3.10 is used to run/test this whole application. 
 
