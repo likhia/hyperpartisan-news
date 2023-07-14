@@ -28,7 +28,7 @@ The [data]((https://huggingface.co/datasets/hyperpartisan_news_detection)) need 
 
 * Put the download secure bundle zip file under the `setup` folder. 
 
-* Under the `setup` folder,  rename .env.sample to .env and update the environment variable according to the values under `pre-requisites`.    Please **do not change** the value of `table`
+* Under the `setup` folder,  rename `.env.sample` to `.env` and update the environment variable according to the values under `pre-requisites`.    Please **do not change** the value of `table`
 
 * Load the required modules to run this. 
 ```
@@ -59,7 +59,7 @@ sh deploy.sh
 
 * Under the `fn` folder,  put the download secure bundle zip file. 
 
-* Under the same folder,  rename .env.sample to .env.  
+* Under the same folder,  rename `.env.sample` to `.env`.  
 
 * Copy the full name of each topics (hyperpartisan, non-hyperpartisan) and paste into the environment variables(hyperpartisan_topic, nonhyperpartisan_topic) in .env under `fn` folder.
 ![namespace](./images/namespace.png)
@@ -102,12 +102,12 @@ sh package.sh
 * Click on `Connect` tab. Click on `Python`.   
 
 * Click on `Producer` tab and select `demo` as namespace and `raw` as topic.  These information will be used to configure .env file.
-![./images/connectAS.png]
+![connect](./images/connectAS.png)
 
 * Click on `Settings` tab. Copy the token.   It will be used to configure .env file. 
-![./images/token.png]
+![token]()./images/token.png)
 
-* Under the `streaming` folder,  rename .env.sample to .env. Replace the `service_url`, `token` and `namespace`.   Please note to stop at `/demo`
+* Under the `streaming` folder,  rename `.env.sample` to `.env`. Replace the `service_url`, `token` and `namespace`.   Please note to stop at `/demo`
 
 * Please **do not change** the value of `PORT`.
 
