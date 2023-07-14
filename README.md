@@ -1,6 +1,6 @@
 # Overview 
 
-This project is to share the implementation of Real-Time AI Solution with Vector Search.    The use case is about detecting hyperpartisan news contents.  Instead of using [traditional train model](https://towardsdatascience.com/train-a-longformer-for-detecting-hyperpartisan-news-content-7c141230784e) approach,  use the [trained data](https://huggingface.co/datasets/hyperpartisan_news_detection) and Vector Search to faster search the closest data based on embedding and predict the possibility that the news content is hyperpartisan and take necessary action on it (e.g. Take it down from website).
+This project is to share the implementation of Real-Time AI Solution with Vector Search.    The use case is about detecting hyperpartisan news contents.  Instead of using the [traditional train model](https://towardsdatascience.com/train-a-longformer-for-detecting-hyperpartisan-news-content-7c141230784e) approach,  use the [trained data](https://huggingface.co/datasets/hyperpartisan_news_detection) and Vector Search to faster search the closest data based on the embedding and predict the possibility that the news content is hyperpartisan and take necessary action on it (e.g. Take it down from website).
 
 Just for illustration.  The application will just consume the messages with hyperpartisan content and print the content.
 
@@ -48,16 +48,16 @@ python3.10 loadData.py
 sh deploy.sh
 ```
 ## Create topics 
-* Go back to Astra Console and click on the Astra Streaming Instance. 
+* Go back to `Astra` Console and click on the `Astra Streaming Instance`. 
 
 * Click on `Namespace and Topics` tab.
 
 * Click on `Create Namespace` button.  Name it as `demo`.
 
 * Create the following topics under `demo`.  Set as `Persistent`.  
-** raw 
-** hyperpartisan
-** non-hyperpartisan
+* * raw 
+* * hyperpartisan
+* * non-hyperpartisan
 
 * Under the `fn` folder,  put the download secure bundle zip file. 
 
@@ -80,7 +80,7 @@ sh loadModules.sh
 sh package.sh
 ```
 
-* Go back to Astra Console and click on the Astra Streaming Instance.
+* Go back to `Astra` Console and click on the `Astra Streaming Instance`.
 
 * Click on `Functions` tab.  Click on `Create Function` button.
 
@@ -99,7 +99,7 @@ sh package.sh
 
 * Get the information to connect Astra Streaming via Consumer / Producer.  
 
-* Go back to Astra Console and click on the Astra Streaming Instance.
+* Go back to `Astra Console` and click on the `Astra Streaming Instance`.
 
 * Click on `Connect` tab. Click on `Python`.   
 
@@ -107,7 +107,7 @@ sh package.sh
 ![connect](./images/connectAS.png)
 
 * Click on `Settings` tab. Copy the token.   It will be used to configure .env file. 
-![token]()./images/token.png)
+![token](./images/token.png)
 
 * Under the `streaming` folder,  rename `.env.sample` to `.env`. Replace the `service_url`, `token` and `namespace`.   Please note to stop at `/demo`
 
