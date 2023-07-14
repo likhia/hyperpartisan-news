@@ -1,0 +1,9 @@
+openai
+pandas 
+numpy 
+flask 
+flask_cors 
+cassandra-driver 
+tiktoken
+tenacity
+python-dotenv

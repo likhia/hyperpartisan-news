@@ -1,0 +1,3 @@
+pulsar-client==2.10.1
+requests
+python-dotenv

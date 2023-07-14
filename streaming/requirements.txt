@@ -1,0 +1,9 @@
+pulsar-client==2.10.1
+openai
+pandas 
+numpy 
+flask 
+flask_cors 
+cassandra-driver 
+tiktoken
+tenacity
