@@ -14,21 +14,21 @@ Below is the application flow based on the numbering in Figure 1.
 
 1. The train data from huggingface contains the news content and a `hyperpartisan` flag to indicate if it is hyperpartisan.  Load the train data into Vector Search Database, generate embedding using news content and insert into Vector Search Database. 
 2. Here start the application flow.  `RawProducer.py` is a producer to publish news content into `raw` topic in streaming solution.  
-3. The messages in `raw` topic process by `split` [function](https://pulsar.apache.org/docs/next/functions-overview/) which invoke the `checkHyperpartisan` service to determine if it is likely a hyperpartisan. 
+3. The messages in `raw` topic process by `split` [function](https://pulsar.apache.org/docs/next/functions-overview/) which invoke the `checkHyperpartisan` service to check if it is likely a hyperpartisan. 
 4. `checkHyperpartisan` service do the following:
-    * Generate Embedding for the news content (`content`) of the message from `raw` topic.
+    * Generate Embedding for the news content (`content`) of the message from `raw` topic as highlighted as below. 
     ![payload](./images/payload.png)
 
-    * Search the related data that is closest to the generated embedding. 
+    * Use Vector Search Database to search the related data that is closest to the generated embedding. 
 
     * If the returned result has more than one record with `hyperpartisan` as `True`,  this NEW news contents is likely a hyperpartisan. 
 
-5. If `checkHyperpartisan` service return true,  the message will be written to `hyperpartisan` topic.  Otherwise,  it will be written to `non-hyperpartisan` topic.  
+5. If `checkHyperpartisan` service return true,  the message will be publish to `hyperpartisan` topic.  Otherwise,  it will be publish to `non-hyperpartisan` topic.  
 ![split function](./images/splitfunction.png)
 
-6. The messages in `hyperpartisan` will be consume by `Hyperpartisan.py`.
+6. The messages in `hyperpartisan` will be consumed by `Hyperpartisan.py`.
 
-7. the messages in `non-hyperpartisan` topic will be consumed by `NonHyperpartisan.py`. 
+7. The messages in `non-hyperpartisan` topic will be consumed by `NonHyperpartisan.py`. 
 
 # Pre-requisites
 
