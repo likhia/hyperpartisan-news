@@ -16,10 +16,9 @@ Below is the application flow based on the numbering in Figure 1.
 2. Here start the application flow.  `RawProducer.py` is a producer to publish news content into `raw` topic in streaming solution.  
 3. The messages in `raw` topic process by `split` [function](https://pulsar.apache.org/docs/next/functions-overview/) which invoke the `checkHyperpartisan` service to determine if it is likely a hyperpartisan. 
 4. `checkHyperpartisan` service do the following:
-    * Generate Embedding for the news content of the message from `raw` as shown in bold below.
-    ```
-    {"id": "2468", **"content": "A combative President Trump launched an urgent, last-ditch bid Wednesday to revive an Obamacare repeal effort that had been left for dead just 24 hours earlier, imploring Republicans to stay in Washington until the job is done and warning that failure would decimate the party and its agenda.I'm ready to act, Mr. Trump said at the White House. For seven years you've promised the American people that you would repeal Obamacare. People are hurting. Inaction is not an option. The urgent public plea marked a confrontational shift in tone for Mr. Trump, who had been lobbying senators mainly behind the scenes, and a renewed commitment to the effort. One day earlier,Mr. Trump said Republicans should force Democrats to own Obamacare by letting it collapse under its unsustainable weight.SEE ALSO: Trump hosting GOP senators at White House on Obamacare repeal Mr. Trump got personal at times, leaning into Sen. Dean Heller, a Nevada Republican who faces a tough re-election battle next year and is wary of backing the repeal-and-replace effort.", "title": " President Trump launched an urgent, last-ditch bid"**, "url": "https://towardsdatascience.com/train-a-longformer-for-detecting-hyperpartisan-news-content-7c141230784e",  "publish_at" : "2023-07-10"}
-    ```
+    * Generate Embedding for the news content (`content`) of the message from `raw` topic.
+    ![payload](./images/payload.png)
+
     * Search the related data that is closest to the generated embedding. 
 
     * If the returned result has more than one record with `hyperpartisan` as `True`,  this NEW news contents is likely a hyperpartisan. 
